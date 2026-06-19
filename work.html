@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef Samir | Work</title>
+  <meta name="description" content="Portfolio of work by Youssef Samir — Digital Marketing Specialist & Content Creator." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================
+       DESIGN TOKENS — match existing site
+       ========================================================= */
+    :root {
+      --bg:           #0a0a0a;
+      --bg-card:      #111111;
+      --bg-card-hover:#161616;
+      --border:       #1e1e1e;
+      --border-hover: #2a2a2a;
+      --accent:       #6366f1;       /* indigo — matches site's gradient start */
+      --accent2:      #8b5cf6;       /* violet — gradient end */
+      --accent-glow:  rgba(99,102,241,.15);
+      --text:         #f1f5f9;
+      --text-muted:   #64748b;
+      --text-dim:     #94a3b8;
+      --tag-bg:       #1a1a2e;
+      --tag-text:     #818cf8;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --radius:       12px;
+      --radius-sm:    8px;
+      --transition:   .2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =========================================================
+       NAV — identical to index.html
+       ========================================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+
+    /* =========================================================
+       PAGE HERO
+       ========================================================= */
+    .hero {
+      padding: 120px 2rem 60px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       FILTER BAR
+       ========================================================= */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+      padding: 0 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .filter-btn {
+      padding: .45rem 1.1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* =========================================================
+       BRAND SECTIONS
+       ========================================================= */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+    .brand-section {
+      margin-bottom: 4rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .brand-section:hover { border-color: var(--border-hover); }
+
+    /* Brand header */
+    .brand-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1rem;
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+
+    .brand-role {
+      font-size: .85rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+
+    .brand-desc {
+      color: var(--text-dim);
+      font-size: .9rem;
+      max-width: 600px;
+      line-height: 1.65;
+    }
+
+    .brand-metrics {
+      display: flex;
+      gap: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .metric {
+      text-align: right;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: .72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: .1rem;
+    }
+
+    /* Content grid inside each brand */
+    .brand-content { padding: 1.5rem 2rem; background: var(--bg); }
+
+    .content-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    /* Individual content card */
+    .content-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      transition: all var(--transition);
+    }
+
+    .content-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .card-type {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: .83rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-stats {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: .2rem .6rem;
+      border-radius: 100px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: .25rem;
+      transition: opacity var(--transition);
+    }
+
+    .card-link:hover { opacity: .75; }
+    .card-link svg { width: 13px; height: 13px; }
+
+    /* Tags row */
+    .brand-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      padding: 1rem 2rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .tag {
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: .2rem .65rem;
+      border-radius: 100px;
+    }
+
+    /* Hidden state for filtering */
+    .brand-section.hidden { display: none; }
+
+    /* =========================================================
+       STRATEGY / RESEARCH CARDS (wide layout)
+       ========================================================= */
+    .doc-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .doc-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .doc-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .doc-icon {
+      font-size: 1.4rem;
+      margin-bottom: .25rem;
+    }
+
+    .doc-title {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .doc-sub {
+      font-size: .82rem;
+      color: var(--text-dim);
+    }
+
+    .doc-arrow {
+      margin-top: auto;
+      padding-top: .75rem;
+      font-size: .8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       SECTION DIVIDER LABEL
+       ========================================================= */
+    .section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 1rem 0 .75rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 700px) {
+      .brand-header {
+        grid-template-columns: 1fr;
+      }
+      .brand-metrics {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+      .metric { text-align: left; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { padding: 100px 1.25rem 40px; }
+      .filters { padding: 0 1.25rem 2rem; }
+      main { padding: 0 1.25rem 4rem; }
+      .brand-header, .brand-content, .brand-tags { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">YS</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">Selected Work</span>
+    <h1>Campaigns, Content &amp;<br/><span>Real Results</span></h1>
+    <p>Every piece here drove measurable growth. Filter by type to find what's relevant to you.</p>
+  </section>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="video">Video & Reels</button>
+    <button class="filter-btn" data-filter="social">Social Media</button>
+    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
+    <button class="filter-btn" data-filter="strategy">Strategy & Plans</button>
+    <button class="filter-btn" data-filter="research">Research & Analysis</button>
+    <button class="filter-btn" data-filter="ugc">UGC</button>
+  </div>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       Add new brand sections by copy-pasting a .brand-section block.
+       data-categories = space-separated list of filter keys.
+       ============================================================ -->
+  <main>
+
+    <!-- ── 2OOLAMEME ─────────────────────────────────────────── -->
+    <section class="brand-section" data-categories="video social">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Content Creator · Apr 2025 – Present</div>
+          <div class="brand-name">2oolameme</div>
+          <div class="brand-desc">Egypt's top social gaming platform with 500K+ players. Scripted, filmed, and edited video content for TikTok and Instagram, covered live events, and continuously optimized content based on performance metrics.</div>
+        </div>
+        <div class="brand-metrics">
+          <div class="metric">
+            <div class="metric-value">4M+</div>
+            <div class="metric-label">Total Views</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="content-grid">
+
+          <!-- HOW TO ADD A NEW REEL:
+               Copy the block below, update the title, description,
+               stats, and the href on the card-link. That's it. -->
+
+          <div class="content-card">
+            <div class="card-type">Reel</div>
+            <div class="card-title">Reel #1</div>
+            <div class="card-desc">Add a short one-line description of what this reel is about.</div>
+            <div class="card-stats">
+              <span class="stat-pill">— Views</span>
+              <span class="stat-pill">— Likes</span>
+            </div>
+            <a class="card-link" href="#" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">Reel</div>
+            <div class="card-title">Reel #2</div>
+            <div class="card-desc">Add a short one-line description of what this reel is about.</div>
+            <div class="card-stats">
+              <span class="stat-pill">— Views</span>
+              <span class="stat-pill">— Likes</span>
+            </div>
+            <a class="card-link" href="#" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">Reel</div>
+            <div class="card-title">Reel #3</div>
+            <div class="card-desc">Add a short one-line description of what this reel is about.</div>
+            <div class="card-stats">
+              <span class="stat-pill">— Views</span>
+              <span class="stat-pill">— Likes</span>
+            </div>
+            <a class="card-link" href="#" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">TikTok</span>
+        <span class="tag">Instagram</span>
+        <span class="tag">Video Editing</span>
+        <span class="tag">Scripting</span>
+        <span class="tag">Live Events</span>
+      </div>
+    </section>
+
+
+    <!-- ── IEEE MSA ───────────────────────────────────────────── -->
+    <section class="brand-section" data-categories="video social strategy">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Head of Digital Marketing · 2024</div>
+          <div class="brand-name">IEEE MSA Student Branch</div>
+          <div class="brand-desc">Led digital marketing, content strategy, and media team for the tech student branch at MSA University. Grew Instagram from 221 to 574 followers in 30 days and TikTok from 1 to 1,235 followers in 60 days.</div>
+        </div>
+        <div class="brand-metrics">
+          <div class="metric">
+            <div class="metric-value">210K</div>
+            <div class="metric-label">TikTok Views</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1.2K</div>
+            <div class="metric-label">Followers Gained</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="section-label">Reels & Video</div>
+        <div class="content-grid">
+
+          <div class="content-card">
+            <div class="card-type">TikTok Reel</div>
+            <div class="card-title">Event Recap – Reel 1</div>
+            <div class="card-desc">Short-form event coverage reel.</div>
+            <a class="card-link" href="https://www.tiktok.com/@ieee.msa.sb/video/7410456483302739207" target="_blank">
+              Watch on TikTok
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">TikTok Reel</div>
+            <div class="card-title">Event Recap – Reel 2</div>
+            <div class="card-desc">Short-form event coverage reel.</div>
+            <a class="card-link" href="https://www.tiktok.com/@ieee.msa.sb/video/7412269657199004936" target="_blank">
+              Watch on TikTok
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">TikTok Reel</div>
+            <div class="card-title">Event Recap – Reel 3</div>
+            <div class="card-desc">Short-form event coverage reel.</div>
+            <a class="card-link" href="https://www.tiktok.com/@ieee.msa.sb/video/7413001132383030536" target="_blank">
+              Watch on TikTok
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="section-label">Strategy Documents</div>
+        <div class="doc-grid">
+          <a class="doc-card" href="https://www.canva.com/design/DAGI__UmjPI/piR4Cl_QXVHX7NCXrgmXeg/view" target="_blank">
+            <div class="doc-icon">📋</div>
+            <div class="doc-title">Marketing Plan for IEEE</div>
+            <div class="doc-sub">Full semester marketing strategy</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+          <a class="doc-card" href="https://www.canva.com/design/DAGODgNQIgA/oEQ3BdsYi9Z1Wt-jb1cYGA/view" target="_blank">
+            <div class="doc-icon">📅</div>
+            <div class="doc-title">Digital Content Plan for IEEE</div>
+            <div class="doc-sub">Content calendar and direction</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">TikTok</span>
+        <span class="tag">Instagram</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Team Management</span>
+      </div>
+    </section>
+
+
+    <!-- ── AL BARAIDI DEVELOPMENTS ───────────────────────────── -->
+    <section class="brand-section" data-categories="copywriting social strategy">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Social Media Manager · Sep – Nov 2024</div>
+          <div class="brand-name">Al Baraidi Developments</div>
+          <div class="brand-desc">Developed content calendars, ad copies, and social media strategy for a real estate developer in Al Minya. Produced video scripts and persuasive copy for Boulevard compound campaigns.</div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="section-label">Scripts & Copywriting</div>
+        <div class="content-grid">
+
+          <div class="content-card">
+            <div class="card-type">Video Script</div>
+            <div class="card-title">Al Minya: A New Vision by Al Baraidi</div>
+            <div class="card-desc">Emotional script showcasing Al Minya's charm and Al Baraidi's vision of blending tradition with modern living. Positions Boulevard as a trusted future-ready compound.</div>
+            <a class="card-link" href="https://1drv.ms/v/c/204f05ed1268c975/EZ9fVZjCpRlJvvYN8ylfqLYBlYbPbdBaWmLP_4mo9PmPVQ?e=HUX2Bl" target="_blank">
+              Watch Video
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">Video Script</div>
+            <div class="card-title">Seize Every Moment with Boulevard</div>
+            <div class="card-desc">Connects with the audience through the daily struggles of modern life. Positions Boulevard compound as the ideal escape with green spaces, mountain views, and all amenities.</div>
+            <a class="card-link" href="https://1drv.ms/v/c/204f05ed1268c975/EelHqaeowvxGih1i7_TBMmIBStvESojs1xScwiieFsK3jA?e=6y1HUM" target="_blank">
+              Watch Video
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="section-label">Strategy Documents</div>
+        <div class="doc-grid">
+          <a class="doc-card" href="https://www.canva.com/design/DAGWHeqIR7c/bKhAKc8J8pe8hc5cauEh9Q/view" target="_blank">
+            <div class="doc-icon">📅</div>
+            <div class="doc-title">Content Calendar</div>
+            <div class="doc-sub">Al Baraidi Developments — full social calendar</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">Copywriting</span>
+        <span class="tag">Scripting</span>
+        <span class="tag">Real Estate</span>
+        <span class="tag">Content Calendar</span>
+      </div>
+    </section>
+
+
+    <!-- ── RAMADAN ON THE NILE ───────────────────────────────── -->
+    <section class="brand-section" data-categories="social copywriting">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Content Creator & Social Media Manager</div>
+          <div class="brand-name">Ramadan on the Nile</div>
+          <div class="brand-desc">Corporate hospitality experience offering Iftar and Suhoor gatherings on a Nile boat. Developed strategic content plans, visual copy, captions, and interactive Instagram stories to complement the brand's spirit.</div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="content-grid">
+
+          <div class="content-card">
+            <div class="card-type">Instagram Post</div>
+            <div class="card-title">Content Post 1</div>
+            <div class="card-desc">Replace with the actual post description.</div>
+            <a class="card-link" href="#" target="_blank">
+              View Post
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">Instagram Story</div>
+            <div class="card-title">Interactive Ramadan Story</div>
+            <div class="card-desc">Designed interactive stories to drive engagement and audience interaction during Ramadan.</div>
+            <a class="card-link" href="#" target="_blank">
+              View Story
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">Instagram</span>
+        <span class="tag">Social Media</span>
+        <span class="tag">Ramadan Campaign</span>
+        <span class="tag">Community Management</span>
+      </div>
+    </section>
+
+
+    <!-- ── SMORL ──────────────────────────────────────────────── -->
+    <section class="brand-section" data-categories="social copywriting">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Social Media Manager</div>
+          <div class="brand-name">Smorl Fine Dining</div>
+          <div class="brand-desc">Fine dining restaurant in Egypt reimagining smoked cuisine. Led content directions, content calendars, captions, visual copy, and culturally relevant Ramadan and Eid content in Egyptian Arabic.</div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="content-grid">
+
+          <div class="content-card">
+            <div class="card-type">Caption / Copy</div>
+            <div class="card-title">Ramadan Riddles Series</div>
+            <div class="card-desc">Interactive Instagram stories in Egyptian Arabic — culturally relevant Ramadan riddles that boosted story engagement.</div>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">Caption / Copy</div>
+            <div class="card-title">Eid Campaign Content</div>
+            <div class="card-desc">Eid posts and stories reinforcing Smorl's identity as a unique culinary destination for celebrations.</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">F&amp;B</span>
+        <span class="tag">Instagram</span>
+        <span class="tag">Arabic Copywriting</span>
+        <span class="tag">Brand Identity</span>
+      </div>
+    </section>
+
+
+    <!-- ── UGC & PERSONAL BRANDING ───────────────────────────── -->
+    <section class="brand-section" data-categories="ugc video">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Creator</div>
+          <div class="brand-name">UGC & Personal Branding</div>
+          <div class="brand-desc">User-generated content and personal brand videos demonstrating on-camera presence, storytelling, and product showcase skills.</div>
+        </div>
+        <div class="brand-metrics">
+          <div class="metric">
+            <div class="metric-value">66K</div>
+            <div class="metric-label">Top Video Views</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1.9K</div>
+            <div class="metric-label">Top Likes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="content-grid">
+
+          <div class="content-card">
+            <div class="card-type">UGC Video</div>
+            <div class="card-title">Top Performer — 66K Views</div>
+            <div class="card-desc">Best-performing UGC piece. 66K views · 1,886 likes · 357 saves.</div>
+            <div class="card-stats">
+              <span class="stat-pill">66K Views</span>
+              <span class="stat-pill">1,886 Likes</span>
+              <span class="stat-pill">357 Saves</span>
+            </div>
+            <a class="card-link" href="https://1drv.ms/v/c/204f05ed1268c975/IQBK-jHY5ddvTo-aGWgDUyHkAdnetHJodw-H9Q5bSGJn6sM?e=6Dl1Hq" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">UGC Video</div>
+            <div class="card-title">44.6K Views</div>
+            <div class="card-desc">44.6K views · 1,065 likes · 159 saves.</div>
+            <div class="card-stats">
+              <span class="stat-pill">44.6K Views</span>
+              <span class="stat-pill">1,065 Likes</span>
+            </div>
+            <a class="card-link" href="https://1drv.ms/f/c/204f05ed1268c975/IgD3mH2stO14RZb9Du3r9drPAS2ae_5krxIbwuRueKPJnKU?e=euX7u1" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+          <div class="content-card">
+            <div class="card-type">UGC Video</div>
+            <div class="card-title">33.9K Views</div>
+            <div class="card-desc">33.9K views · 959 likes · 276 saves.</div>
+            <div class="card-stats">
+              <span class="stat-pill">33.9K Views</span>
+              <span class="stat-pill">959 Likes</span>
+            </div>
+            <a class="card-link" href="https://1drv.ms/f/c/204f05ed1268c975/IgD3mH2stO14RZb9Du3r9drPAS2ae_5krxIbwuRueKPJnKU?e=euX7u1" target="_blank">
+              Watch on OneDrive
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">UGC</span>
+        <span class="tag">Personal Branding</span>
+        <span class="tag">On-Camera</span>
+        <span class="tag">Storytelling</span>
+      </div>
+    </section>
+
+
+    <!-- ── RESEARCH & ANALYSIS ───────────────────────────────── -->
+    <section class="brand-section" data-categories="research strategy">
+      <div class="brand-header">
+        <div>
+          <div class="brand-role">Internships — Slash Hub · Wadi Degla · AAIB</div>
+          <div class="brand-name">Research & Analysis</div>
+          <div class="brand-desc">Market research, competitor analysis, and strategic planning documents produced during internships across e-commerce, sports, and banking sectors.</div>
+        </div>
+      </div>
+
+      <div class="brand-content">
+        <div class="doc-grid">
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGDxyn8TS4/T-4oJ2TnZA94J1_sVa49mA/view" target="_blank">
+            <div class="doc-icon">🛒</div>
+            <div class="doc-title">Amazon Profile Analysis</div>
+            <div class="doc-sub">For Slash — e-commerce profile audit</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGDukLiJgs/4_7MQ7eRDYm22axjahQHkw/view" target="_blank">
+            <div class="doc-icon">📊</div>
+            <div class="doc-title">E-Commerce Market Research in Egypt</div>
+            <div class="doc-sub">For Slash — landscape analysis</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGQO7jeMSQ/SRTTVrSCQv1Ck3AJwfCSkQ/view" target="_blank">
+            <div class="doc-icon">⚽</div>
+            <div class="doc-title">Saudi Sports Content Analysis</div>
+            <div class="doc-sub">For Wadi Degla — market opportunity</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGD_-aBi8o/oRHU9Nm8BTCRMW0knzEEfw/view" target="_blank">
+            <div class="doc-icon">🛵</div>
+            <div class="doc-title">Talabat Mart Analysis</div>
+            <div class="doc-sub">For Slash — competitor platform deep-dive</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGOacSWQnU/5epXZWy9nVwl0qegfMAq2A/view" target="_blank">
+            <div class="doc-icon">🏦</div>
+            <div class="doc-title">Mobile App Ad Concept</div>
+            <div class="doc-sub">For AAIB — banking campaign concept</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+          <a class="doc-card" href="https://www.canva.com/design/DAGQO8F5Lms/2fOdFeBY5OGELVn6O96Cxw/view" target="_blank">
+            <div class="doc-icon">🏃</div>
+            <div class="doc-title">Digital Content Direction</div>
+            <div class="doc-sub">For Wadi Degla — full content strategy</div>
+            <div class="doc-arrow">View document →</div>
+          </a>
+
+        </div>
+      </div>
+      <div class="brand-tags">
+        <span class="tag">Market Research</span>
+        <span class="tag">Competitor Analysis</span>
+        <span class="tag">E-Commerce</span>
+        <span class="tag">Sports Marketing</span>
+        <span class="tag">Banking</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Youssef Samir · <a href="index.html">Back to Home</a> · <a href="mailto:youssef.khodeirr@gmail.com">youssef.khodeirr@gmail.com</a></p>
+  </footer>
+
+  <!-- FILTER SCRIPT -->
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sections   = document.querySelectorAll('.brand-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        sections.forEach(sec => {
+          if (filter === 'all') {
+            sec.classList.remove('hidden');
+          } else {
+            const cats = sec.dataset.categories.split(' ');
+            sec.classList.toggle('hidden', !cats.includes(filter));
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
