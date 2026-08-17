@@ -97,6 +97,15 @@
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: .85rem;
     }
+    .highlights-grid-secondary {
+      display: flex;
+      justify-content: center;
+      margin-top: .85rem;
+    }
+    .highlights-grid-secondary .highlight-card {
+      width: 100%;
+      max-width: 260px;
+    }
     .highlight-card {
       background: linear-gradient(135deg, #13131f, #1a1a2e);
       border: 1px solid #2a2a4a;
@@ -322,6 +331,13 @@
     <!-- ADD / EDIT highlights here — each card is one achievement -->
 
     <a class="highlight-card" href="#ugc" onclick="scrollToSection('ugc')">
+      <div class="highlight-emoji">✨</div>
+      <div class="highlight-stat">25M+</div>
+      <div class="highlight-desc">Lifetime views across all personal & brand accounts</div>
+      <div class="highlight-source">All Platforms</div>
+    </a>
+
+    <a class="highlight-card" href="#ugc" onclick="scrollToSection('ugc')">
       <div class="highlight-emoji">🎬</div>
       <div class="highlight-stat">6.6M Views</div>
       <div class="highlight-desc">Single UGC video — 311K likes · 19.2K saves</div>
@@ -342,27 +358,15 @@
       <div class="highlight-source">Titans Club</div>
     </a>
 
+  </div>
+
+  <div class="highlights-grid-secondary">
     <a class="highlight-card" href="#ieee" onclick="scrollToSection('ieee')">
       <div class="highlight-emoji">📈</div>
       <div class="highlight-stat">1.5K+</div>
       <div class="highlight-desc">Followers across platforms for IEEE MSA in 60 days, 100% organic</div>
       <div class="highlight-source">IEEE MSA</div>
     </a>
-
-    <a class="highlight-card" href="#ieee" onclick="scrollToSection('ieee')">
-      <div class="highlight-emoji">📸</div>
-      <div class="highlight-stat">221 → 574</div>
-      <div class="highlight-desc">Instagram followers in 30 days · 47K+ views</div>
-      <div class="highlight-source">IEEE MSA</div>
-    </a>
-
-    <a class="highlight-card" href="#ugc" onclick="scrollToSection('ugc')">
-      <div class="highlight-emoji">✨</div>
-      <div class="highlight-stat">25M+</div>
-      <div class="highlight-desc">Lifetime views across all personal & brand accounts</div>
-      <div class="highlight-source">All Platforms</div>
-    </a>
-
   </div>
 </div>
 
